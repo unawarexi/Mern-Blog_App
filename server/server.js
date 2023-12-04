@@ -13,14 +13,15 @@ connectDB();
 
 //json
 app.use(express.json);
+//middleware
+app.use('/api/users', userRoutes)
 
 //  controllers
 app.get("/", (req, res) => {
   res.send("server is running..");
 });
 
-//middleware
-app.use('/api/users', userRoutes)
+
 
 
 
