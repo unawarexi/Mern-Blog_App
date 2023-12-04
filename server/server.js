@@ -1,13 +1,17 @@
-import express from "express";
-import dotenv from "dotenv";
-import connectDB  from "./config/db";
-// this is where the issue is comming from
+const express = require("express");
+const app = express();
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
+
+//Routes
+const userRoutes = require("./routes/UserRoutes")
 
 dotenv.config();
 connectDB();
 // and this too
 
-const app = express();
+
+//json
 app.use(express.json);
 
 //  controllers
@@ -15,7 +19,12 @@ app.get("/", (req, res) => {
   res.send("server is running..");
 });
 
-const PORT = process.env.PORT || 5000;
+//middleware
+app.use('/api/users', userRoutes)
+
+
+
+const port = process.env.PORT || 5000;
 
 // listening to a port
-app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
+app.listen(port, () => console.log(`server is running on port ${port}`));
