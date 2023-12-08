@@ -3,7 +3,9 @@ const app = express();
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 
-const router =  require("./routes/UserRoutes")
+const userRoutes =  require("./routes/UserRoutes")
+
+const {errorResponderHandler, inValidPathHandler} =  require("./middleware/errorHandler")
 
 
 dotenv.config();
@@ -11,10 +13,12 @@ connectDB();
 // and this too
 
 
-//json
-app.use(express.json);
+//middleware
+app.use(express.json());
+app.use('/api/users', userRoutes),
+app.use(inValidPathHandler),
+app.use(errorResponderHandler),
 
-app.use('/api/users', router)
 
 
 //  controllers
