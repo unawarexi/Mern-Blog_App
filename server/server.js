@@ -3,8 +3,8 @@ const app = express();
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 
-//Routes
-const userRoutes = require("./routes/UserRoutes")
+const router =  require("./routes/UserRoutes")
+
 
 dotenv.config();
 connectDB();
@@ -13,13 +13,15 @@ connectDB();
 
 //json
 app.use(express.json);
-//middleware
-app.use('/api/users', userRoutes)
+
+app.use('/api/users', router)
+
 
 //  controllers
 app.get("/", (req, res) => {
   res.send("server is running..");
 });
+
 
 
 
