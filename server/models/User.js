@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
-const UserSChema = new Schema(
+const UserSchema = new Schema(
   {
-    avaatar: { type: String, default: "" },
+    avatar: { type: String, default: "" },
     name: { type: String, required: true },
-    emaail: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true },
     verified: { type: Boolean, default: false },
     verificationCode: { type: String, required: false },
@@ -16,7 +16,6 @@ const UserSChema = new Schema(
   }
 );
 
+const User = model("User", UserSchema);
 
-const User = model("User", UserSChema);
-
-module.exports = User;
+module.exports =  User;
