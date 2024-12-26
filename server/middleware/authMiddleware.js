@@ -1,6 +1,7 @@
 
-import { verify } from "jsonwebtoken";
-import User from "../models/User";
+import verifyPackage from 'jsonwebtoken';
+const { verify } = verifyPackage;
+import User from "../models/User.js";
 
 export const authGuard = async (req, res, next) => {
   if (

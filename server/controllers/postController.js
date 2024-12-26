@@ -1,8 +1,8 @@
 
-import { uploadPicture } from "../middleware/uploadPictureMiddleware";
-import Post from "../models/Post";
-import Comment from "../models/Comment";
-import { fileRemover } from "../utils/fileRemover";
+import { uploadPicture } from "../middleware/uploadAssets.js";
+import Post from "../models/Post.js";
+import Comment from "../models/Comments.js";
+import { fileRemover } from "../utils/fileRemover.js";
 import { v4 as uuidv4 } from "uuid";
 
 const createPost = async (req, res, next) => {

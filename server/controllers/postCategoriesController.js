@@ -1,6 +1,6 @@
 
-import PostCategories from "../models/PostCategories";
-import Post from "../models/Post";
+import PostCategories from "../models/PostCategories.js";
+import Post from "../models/Post.js";
 
 const createPostCategory = async (req, res, next) => {
   try {
